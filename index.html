@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Right To Live In Peace</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 60px 20px 20px 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border: 2px solid #000;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #000;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px #ccc;
+        }
+        
+        .nav-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .nav-table td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+            background-color: #e0e0e0;
+        }
+        
+        .nav-table a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        .nav-table a:hover {
+            background-color: #ccc;
+        }
+        
+        .content {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        
+        .animated-text {
+            font-size: 1.5em;
+            color: #0066cc;
+            text-align: center;
+            margin: 20px 0;
+            height: 60px;
+            overflow: hidden;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .marquee {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background-color: #ffff00;
+            color: #000;
+            padding: 10px 0;
+            margin: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        
+        .marquee-text {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-size: 1.2em;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.33%); }
+        }
+        
+        .visitor-counter {
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            background-color: #000;
+            color: #00ff00;
+            padding: 10px;
+            margin: 20px 0;
+            border: 2px solid #00ff00;
+        }
+        
+        .last-updated {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Right To Live In Peace</h1>
+        
+        <table class="nav-table">
+            <tr>
+                <td><a href="index.html">Home</a></td>
+                <td><a href="about.html">About</a></td>
+                <td><a href="mission.html">Mission</a></td>
+                <td><a href="resources.html">Resources</a></td>
+                <td><a href="contact.html">Contact</a></td>
+            </tr>
+        </table>
+        
+        <div class="marquee">
+            <div class="marquee-text">🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp; 🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp; 🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+        
+        <div class="animated-text" id="animatedText">
+            <span class="blink">PEACE</span> <span class="blink">LOVE</span> <span class="blink">HARMONY</span>
+        </div>
+        
+        <div class="visitor-counter">
+            <div>VISITOR COUNTER</div>
+            <div id="counter">0000001</div>
+            <div>Last Updated: <span id="lastUpdate"></span></div>
+        </div>
+        
+        <div class="content">
+            <h2>Welcome to Our Website!</h2>
+            <p>Welcome to <strong>The Right To Live In Peace</strong>, a website dedicated to promoting understanding, compassion, and peaceful coexistence in our world.</p>
+            
+            <p>In a world that often seems divided, we believe that every human being has the fundamental right to live in peace, free from fear, violence, and oppression. Our mission is to:</p>
+            
+            <ul>
+                <li>Promote peaceful dialogue and understanding</li>
+                <li>Support communities working toward harmony</li>
+                <li>Provide resources for conflict resolution</li>
+                <li>Celebrate diversity and human dignity</li>
+            </ul>
+            
+            <p>Explore our pages to learn more about our mission, find resources for peace-building, and discover how you can contribute to creating a more peaceful world.</p>
+            
+            <p><em>"Peace cannot be kept by force; it can only be achieved by understanding." - Albert Einstein</em></p>
+        </div>
+        
+        <div class="last-updated">
+            Last Updated: <span id="currentDate"></span> | 
+            <a href="mailto:info@righttoliveinpeace.org">Email Us</a> | 
+            <a href="guestbook.html">Sign Guestbook</a>
+        </div>
+    </div>
+    
+    <script>
+        // Animated text cycling
+        const animatedText = document.getElementById('animatedText');
+        const words = ['PEACE', 'LOVE', 'HARMONY', 'UNITY', 'HOPE', 'JOY'];
+        let currentWordIndex = 0;
+        
+        function cycleWords() {
+            animatedText.innerHTML = `<span class="blink">${words[currentWordIndex]}</span>`;
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+        }
+        
+        setInterval(cycleWords, 2000);
+        
+        // Visitor counter animation
+        const counter = document.getElementById('counter');
+        let count = 1;
+        
+        function updateCounter() {
+            count++;
+            counter.textContent = count.toString().padStart(7, '0');
+        }
+        
+        setInterval(updateCounter, 5000);
+        
+        // Update timestamps
+        function updateTimestamps() {
+            const now = new Date();
+            const dateString = now.toLocaleDateString();
+            const timeString = now.toLocaleTimeString();
+            
+            document.getElementById('currentDate').textContent = dateString;
+            document.getElementById('lastUpdate').textContent = timeString;
+        }
+        
+        updateTimestamps();
+        setInterval(updateTimestamps, 1000);
+        
+        // Page loaded successfully
+        window.onload = function() {
+            console.log("Welcome to The Right To Live In Peace!");
+        };
+        
+        // Add some classic Web 1.0 effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make links blink on hover
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.textDecoration = 'blink';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.textDecoration = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
