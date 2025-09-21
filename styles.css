@@ -1,0 +1,416 @@
+/* ========================================
+   The Right To Live In Peace - Styles
+   Classic Web 1.0 Aesthetic
+   ======================================== */
+
+/* ===== BASE STYLES ===== */
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 60px 20px 20px 20px; /* Extra padding for marquee on homepage */
+    color: #333;
+}
+
+/* Pages without marquee need less top padding */
+body.no-marquee {
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border: 2px solid #000;
+    padding: 20px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1 {
+    text-align: center;
+    color: #000;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px #ccc;
+}
+
+h2 {
+    color: #0066cc;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #000;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.content {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* ===== NAVIGATION ===== */
+.nav-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.nav-table td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    background-color: #e0e0e0;
+}
+
+.nav-table a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.nav-table a:hover {
+    background-color: #ccc;
+}
+
+/* ===== ANIMATED ELEMENTS ===== */
+.animated-text {
+    font-size: 1.5em;
+    color: #0066cc;
+    text-align: center;
+    margin: 20px 0;
+    height: 60px;
+    overflow: hidden;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* ===== MARQUEE BANNER ===== */
+.marquee {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: #ffff00;
+    color: #000;
+    padding: 10px 0;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.marquee-text {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    font-size: 1.2em;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); }
+}
+
+/* ===== VISITOR COUNTER ===== */
+.visitor-counter {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    background-color: #000;
+    color: #00ff00;
+    padding: 10px;
+    margin: 20px 0;
+    border: 2px solid #00ff00;
+}
+
+/* ===== TABLES ===== */
+/* Generic table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #0066cc;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Specific table styles */
+.team-table th {
+    background-color: #000;
+}
+
+.goals-table th, .contact-table th, .resource-table th {
+    background-color: #0066cc;
+}
+
+/* ===== SPECIAL BOXES ===== */
+.mission-box {
+    border: 3px solid #0066cc;
+    background-color: #f0f8ff;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.form-box {
+    border: 2px solid #000;
+    background-color: #f0f8ff;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.guestbook-form {
+    border: 2px solid #000;
+    background-color: #f0f8ff;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.download-box {
+    border: 2px solid #000;
+    background-color: #ffffcc;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.link-list {
+    background-color: #f0f8ff;
+    border: 1px solid #0066cc;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.office-hours {
+    background-color: #ffffcc;
+    border: 2px solid #000;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+/* ===== FORMS ===== */
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-table td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+.form-table input, 
+.form-table textarea, 
+.form-table select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #000;
+    font-family: 'Times New Roman', serif;
+}
+
+.form-table textarea {
+    height: 100px;
+}
+
+.submit-button {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    font-family: 'Times New Roman', serif;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #004499;
+}
+
+/* ===== GUESTBOOK ENTRIES ===== */
+.guestbook-entry {
+    border: 1px solid #000;
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.entry-header {
+    font-weight: bold;
+    color: #0066cc;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.entry-date {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.entry-message {
+    margin-top: 10px;
+}
+
+/* ===== FOOTER ===== */
+.last-updated {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 60px 10px 10px 10px;
+    }
+    
+    body.no-marquee {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+        margin: 0 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .nav-table {
+        font-size: 0.9em;
+    }
+    
+    .nav-table td {
+        padding: 8px;
+    }
+    
+    .marquee-text {
+        font-size: 1em;
+    }
+    
+    table {
+        font-size: 0.9em;
+    }
+    
+    table th, table td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .nav-table {
+        font-size: 0.8em;
+    }
+    
+    .nav-table td {
+        padding: 6px;
+    }
+    
+    .marquee-text {
+        font-size: 0.9em;
+    }
+    
+    table {
+        font-size: 0.8em;
+    }
+    
+    table th, table td {
+        padding: 6px;
+    }
+}
+
+/* ===== WEB 1.0 EFFECTS ===== */
+/* Blinking links on hover */
+a:hover {
+    text-decoration: blink;
+}
+
+/* Focus effects for form inputs */
+input:focus, textarea:focus, select:focus {
+    background-color: #ffffcc;
+    outline: 2px solid #0066cc;
+}
+
+/* Guestbook entry hover effects */
+.guestbook-entry:hover {
+    border: 2px solid #0066cc;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
+
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+.highlight {
+    background-color: #ffffcc;
+    padding: 2px 4px;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .marquee {
+        display: none;
+    }
+    
+    body {
+        padding: 20px;
+        background-color: white;
+    }
+    
+    .container {
+        border: none;
+        box-shadow: none;
+    }
+    
+    .nav-table {
+        break-inside: avoid;
+    }
+}
