@@ -6,7 +6,7 @@
     <title>Our Mission - The Right To Live In Peace</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="no-marquee">
+<body>
     <div class="container">
         <h1>The Right To Live In Peace</h1>
         
@@ -20,7 +20,14 @@
             </tr>
         </table>
         
+        <div class="marquee">
+            <div class="marquee-text">🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp; 🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp; 🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+        
         <div class="content">
+            <div class="globe-container">
+                <canvas id="globeCanvas" width="300" height="300"></canvas>
+            </div>
             <p style="font-family: 'Times New Roman', serif; text-align: center; font-size: 1.2em; margin: 50px 0;">make katie likey</p>
         </div>
         
@@ -31,7 +38,156 @@
         </div>
     </div>
     
+    <style>
+        .globe-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        #globeCanvas {
+            border: none;
+            background-color: transparent;
+        }
+    </style>
+    
     <script>
+        // Globe Animation
+        const canvas = document.getElementById('globeCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const radius = 120;
+        let rotation = 0;
+        
+        // Simple continent data (simplified shapes)
+        const continents = [
+            // North America
+            { points: [
+                { lat: 70, lon: -140 }, { lat: 70, lon: -100 }, { lat: 50, lon: -80 },
+                { lat: 30, lon: -95 }, { lat: 25, lon: -110 }, { lat: 15, lon: -100 },
+                { lat: 20, lon: -85 }, { lat: 30, lon: -80 }, { lat: 50, lon: -60 }
+            ]},
+            // South America
+            { points: [
+                { lat: 10, lon: -75 }, { lat: -10, lon: -70 }, { lat: -30, lon: -60 },
+                { lat: -50, lon: -70 }, { lat: -45, lon: -80 }, { lat: -25, lon: -85 },
+                { lat: -5, lon: -80 }, { lat: 10, lon: -75 }
+            ]},
+            // Europe
+            { points: [
+                { lat: 60, lon: -10 }, { lat: 70, lon: 0 }, { lat: 70, lon: 20 },
+                { lat: 60, lon: 30 }, { lat: 50, lon: 20 }, { lat: 45, lon: 10 },
+                { lat: 50, lon: 0 }, { lat: 60, lon: -10 }
+            ]},
+            // Africa
+            { points: [
+                { lat: 35, lon: -10 }, { lat: 35, lon: 30 }, { lat: 20, lon: 35 },
+                { lat: 5, lon: 30 }, { lat: -5, lon: 20 }, { lat: -30, lon: 20 },
+                { lat: -30, lon: -10 }, { lat: -10, lon: -15 }, { lat: 10, lon: -10 },
+                { lat: 35, lon: -10 }
+            ]},
+            // Asia
+            { points: [
+                { lat: 60, lon: 60 }, { lat: 70, lon: 80 }, { lat: 65, lon: 120 },
+                { lat: 50, lon: 140 }, { lat: 40, lon: 130 }, { lat: 30, lon: 110 },
+                { lat: 35, lon: 90 }, { lat: 45, lon: 70 }, { lat: 60, lon: 60 }
+            ]},
+            // Australia
+            { points: [
+                { lat: -10, lon: 110 }, { lat: -10, lon: 155 }, { lat: -25, lon: 155 },
+                { lat: -35, lon: 140 }, { lat: -30, lon: 115 }, { lat: -10, lon: 110 }
+            ]}
+        ];
+        
+        function project(lat, lon, r) {
+            const x = centerX + r * Math.cos(lat * Math.PI / 180) * Math.sin((lon + rotation) * Math.PI / 180);
+            const y = centerY - r * Math.sin(lat * Math.PI / 180);
+            return { x, y };
+        }
+        
+        function drawGlobe() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw blue ocean background
+            ctx.fillStyle = '#87CEEB';
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Draw globe outline
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.stroke();
+            
+            // Draw continents
+            ctx.strokeStyle = '#228B22';
+            ctx.fillStyle = '#90EE90';
+            ctx.lineWidth = 2;
+            
+            continents.forEach(continent => {
+                ctx.beginPath();
+                let firstPoint = true;
+                
+                continent.points.forEach(point => {
+                    const projected = project(point.lat, point.lon, radius);
+                    
+                    // Only draw if the point is on the visible side
+                    if (Math.cos(point.lat * Math.PI / 180) * Math.sin((point.lon + rotation) * Math.PI / 180) > -1.0) {
+                        if (firstPoint) {
+                            ctx.moveTo(projected.x, projected.y);
+                            firstPoint = false;
+                        } else {
+                            ctx.lineTo(projected.x, projected.y);
+                        }
+                    }
+                });
+                
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+            });
+            
+            // Draw grid lines for 3D effect
+            ctx.strokeStyle = '#666';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([5, 5]);
+            
+            // Latitude lines
+            for (let lat = -60; lat <= 60; lat += 30) {
+                ctx.beginPath();
+                for (let lon = 0; lon <= 360; lon += 10) {
+                    const projected = project(lat, lon, radius);
+                    if (Math.cos(lat * Math.PI / 180) * Math.sin((lon + rotation) * Math.PI / 180) > -1.0) {
+                        if (lon === 0) {
+                            ctx.moveTo(projected.x, projected.y);
+                        } else {
+                            ctx.lineTo(projected.x, projected.y);
+                        }
+                    }
+                }
+                ctx.stroke();
+            }
+            
+            ctx.setLineDash([]);
+            
+            rotation += 1;
+            if (rotation >= 360) rotation = 0;
+        }
+        
+        // Animation loop
+        function animate() {
+            drawGlobe();
+            requestAnimationFrame(animate);
+        }
+        
+        // Start animation
+        animate();
+        
+        // Timestamp function
         function updateTimestamps() {
             const now = new Date();
             const dateString = now.toLocaleDateString();
