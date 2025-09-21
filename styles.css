@@ -6,22 +6,22 @@
 /* ===== BASE STYLES ===== */
 body {
     font-family: 'Times New Roman', serif;
-    background-color: #f0f0f0;
+    background-color: white;
     margin: 0;
-    padding: 60px 20px 20px 20px; /* Extra padding for marquee on homepage */
+    padding: 60px 0 0 0; /* Extra padding for marquee on homepage */
     color: #333;
 }
 
 /* Pages without marquee need less top padding */
 body.no-marquee {
-    padding: 20px;
+    padding: 0;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     background-color: white;
-    border: 2px solid #000;
+    border: none;
     padding: 20px;
 }
 
@@ -89,6 +89,16 @@ h4 {
     margin: 20px 0;
     height: 60px;
     overflow: hidden;
+}
+
+.gif-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.center-gif {
+    max-width: 300px;
+    height: auto;
 }
 
 .blink {
