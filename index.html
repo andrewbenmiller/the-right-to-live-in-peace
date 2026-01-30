@@ -8,24 +8,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>The Right To Live In Peace</h1>
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="#" id="langToggle" class="language-toggle" onclick="toggleLanguage(); return false;">Cambia al Español</a>
+        </div>
+        <h1 data-i18n-title="siteTitle"><a href="index.html">The Right To Live In Peace</a></h1>
         
         <table class="nav-table">
             <tr>
-                <td><a href="index.html">Home</a></td>
-                <td><a href="about.html">About</a></td>
-                <td><a href="mission.html">Mission</a></td>
-                <td><a href="resources.html">Resources</a></td>
-                <td><a href="contact.html">Contact</a></td>
+                <td><a href="about.html" data-i18n="navAbout">About</a></td>
+                <td><a href="resources.html" data-i18n="navResources">Resources</a></td>
+                <td><a href="contact.html" data-i18n="navContact">Contact</a></td>
             </tr>
         </table>
         
         <div class="marquee">
             <div class="marquee-text">🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp; 🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp; 🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟 &nbsp;&nbsp;&nbsp;&nbsp;</div>
-        </div>
-        
-        <div class="animated-text" id="animatedText">
-            <span class="blink">PEACE</span> <span class="blink">LOVE</span> <span class="blink">HARMONY</span>
         </div>
         
         <div class="gif-container">
@@ -35,19 +32,8 @@
         
     </div>
     
+    <script src="translations.js"></script>
     <script>
-        // Animated text cycling
-        const animatedText = document.getElementById('animatedText');
-        const words = ['PEACE', 'LOVE', 'HARMONY', 'UNITY', 'HOPE', 'JOY'];
-        let currentWordIndex = 0;
-        
-        function cycleWords() {
-            animatedText.innerHTML = `<span class="blink">${words[currentWordIndex]}</span>`;
-            currentWordIndex = (currentWordIndex + 1) % words.length;
-        }
-        
-        setInterval(cycleWords, 2000);
-        
         // Visitor counter animation
         const counter = document.getElementById('counter');
         let count = 1;
@@ -77,19 +63,6 @@
             console.log("Welcome to The Right To Live In Peace!");
         };
         
-        // Add some classic Web 1.0 effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Make links blink on hover
-            const links = document.querySelectorAll('a');
-            links.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.textDecoration = 'blink';
-                });
-                link.addEventListener('mouseleave', function() {
-                    this.style.textDecoration = 'none';
-                });
-            });
-        });
     </script>
 </body>
 </html>

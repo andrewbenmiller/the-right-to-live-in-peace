@@ -8,15 +8,16 @@
 </head>
 <body class="no-marquee">
     <div class="container">
-        <h1>The Right To Live In Peace</h1>
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="#" id="langToggle" class="language-toggle" onclick="toggleLanguage(); return false;">Cambia al Español</a>
+        </div>
+        <h1 data-i18n-title="siteTitle"><a href="index.html">The Right To Live In Peace</a></h1>
         
         <table class="nav-table">
             <tr>
-                <td><a href="index.html">Home</a></td>
-                <td><a href="about.html">About</a></td>
-                <td><a href="mission.html">Mission</a></td>
-                <td><a href="resources.html">Resources</a></td>
-                <td><a href="contact.html">Contact</a></td>
+                <td><a href="about.html" data-i18n="navAbout">About</a></td>
+                <td><a href="resources.html" data-i18n="navResources">Resources</a></td>
+                <td><a href="contact.html" data-i18n="navContact">Contact</a></td>
             </tr>
         </table>
         
@@ -24,17 +25,17 @@
             <div style="text-align: center; margin: 30px 0;">
                 <img src="rafa.jpeg" alt="Rafa" style="max-width: 300px; height: auto; border: 2px solid #333;">
             </div>
-            <p style="font-family: 'Times New Roman', serif; text-align: center; font-size: 1.2em; margin: 50px 0;">i love katie</p>
+            <p style="font-family: 'Times New Roman', serif; text-align: center; font-size: 1.2em; margin: 50px 0;" data-i18n="aboutContent">i love katie</p>
         </div>
         
         
         <div class="last-updated">
-            Last Updated: <span id="currentDate"></span> | 
-            <a href="mailto:info@righttoliveinpeace.org">Email Us</a> | 
-            <a href="guestbook.html">Sign Guestbook</a>
+            <span data-i18n="lastUpdated">Last Updated</span>: <span id="currentDate"></span> | 
+            <a href="mailto:info@righttoliveinpeace.org" data-i18n="emailUs">Email Us</a>
         </div>
     </div>
     
+    <script src="translations.js"></script>
     <script>
         function updateTimestamps() {
             const now = new Date();
