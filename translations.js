@@ -17,7 +17,7 @@ const translations = {
         switchToEnglish: "Switch to English",
         
         // Home page
-        marqueeText: "🌟 Welcome to The Right To Live In Peace - Promoting Harmony and Understanding 🌟",
+        marqueeText: "Welcome to The Right To Live In Peace - Bienvenido a El Derecho a Vivir en Paz",
         words: ['PEACE', 'LOVE', 'HARMONY', 'UNITY', 'HOPE', 'JOY'],
         
         // About page
@@ -89,7 +89,7 @@ const translations = {
         switchToEnglish: "Switch to English",
         
         // Home page
-        marqueeText: "🌟 Bienvenido a El Derecho a Vivir en Paz - Promoviendo Armonía y Comprensión 🌟",
+        marqueeText: "Welcome to The Right To Live In Peace - Bienvenido a El Derecho a Vivir en Paz",
         words: ['PAZ', 'AMOR', 'ARMONÍA', 'UNIDAD', 'ESPERANZA', 'ALEGRÍA'],
         
         // About page
